@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 import scraping
 
-
 bot = commands.Bot ('!')
 
 @bot.event
@@ -29,4 +28,4 @@ async def send_vasco(ctx):
     await ctx.send (response)
 
 
-bot.run('')
+bot.run('ODkwMzQ1MjkyNjIzNDA5MjMy.YUucqw.jfrjSBKcF9UCyHtqX253Vo_2lr0')
