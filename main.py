@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import scraping
 
 bot = commands.Bot ('!')
 
@@ -17,14 +18,14 @@ async def on_message (message):
 
     await bot.process_commands(message)
 
-@bot.command (name='vasco')
+
+@bot.command (name='tabela')
 async def send_vasco(ctx):
     name = ctx.author.name
 
-    response = "VASCO DA GAMA E NADA MAIS, " + name
+    response = scraping.tabela
 
     await ctx.send (response)
 
 
-
-bot.run('ODkwMzQ1MjkyNjIzNDA5MjMy.YUucqw.QMfv7feo46XYdobVVDTlZ2LIFqk')
+bot.run('ODkwMzQ1MjkyNjIzNDA5MjMy.YUucqw.jfrjSBKcF9UCyHtqX253Vo_2lr0')
