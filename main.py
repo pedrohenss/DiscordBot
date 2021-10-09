@@ -28,4 +28,4 @@ async def send_vasco(ctx):
     await ctx.send (response)
 
 
-bot.run('ODkwMzQ1MjkyNjIzNDA5MjMy.YUucqw.jfrjSBKcF9UCyHtqX253Vo_2lr0')
+bot.run('TOKEN')
