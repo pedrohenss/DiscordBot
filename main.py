@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import scraping
+from decouple import config
 
 bot = commands.Bot ('!')
 
@@ -20,12 +21,12 @@ async def on_message (message):
 
 
 @bot.command (name='tabela')
-async def send_vasco(ctx):
+async def send_tabela(ctx):
     name = ctx.author.name
 
     response = scraping.tabela
 
     await ctx.send (response)
 
-
-bot.run('ODkwMzQ1MjkyNjIzNDA5MjMy.YUucqw.jfrjSBKcF9UCyHtqX253Vo_2lr0')
+TOKEN = config ('TOKEN_DISCORD')
+bot.run(TOKEN)
