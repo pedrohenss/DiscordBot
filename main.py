@@ -28,5 +28,19 @@ async def send_tabela(ctx):
 
     await ctx.send (response)
 
+@bot.command (name='ao_vivo')
+async def send_ao_vivo(ctx):
+    name = ctx.author.name
+
+    response = scraping.tamanho_lista
+
+    await ctx.send (response)
+
+
+
+
+
+
+
 TOKEN = config ('TOKEN_DISCORD')
 bot.run(TOKEN)

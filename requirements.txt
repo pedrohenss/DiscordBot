@@ -1,0 +1,6 @@
+discord.py
+python-decouple
+requests-html
+bs4
+selenium
+requests 
