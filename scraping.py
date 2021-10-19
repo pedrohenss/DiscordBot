@@ -1,8 +1,8 @@
-from typing import List, Any
-from requests_html import HTMLSession
 from bs4 import BeautifulSoup
+from requests_html import HTMLSession
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+import time
 
 
 ## Comando Tabela Brasileirão
@@ -15,23 +15,23 @@ points = requisicao.html.find('.pg')
 tabela = []
 
 for item in range (0, 20):
-    tabela.append(nome_times[item].text + ' - ' + points[item].text + ' ' + '\n' )
+    tabela.append(points[item].text + ' - ' + nome_times[item].text + ' ' + '\n' )
 
 tabela = (''.join(map(str,tabela)))
 print(tabela)
 
-
 ## Comando jogos ao vivo
 
-option = Options()
-option.headless = True
-driver = webdriver.Firefox(options=option)
 
-driver.get ('https://www.flashscore.com.br')
+driver = webdriver.Firefox()
 
-tab_aovivo = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div/div[1]/div[2]/div[5]/div/div[1]/div[1]/div[2]')
+driver.get('https://www.flashscore.com.br')
+
+time.sleep(5)
+
+tab_aovivo = driver.find_element_by_xpath('/html/body/div[6]/div[1]/div/div[1]/div[2]/div[5]/div/div[1]/div[1]/div[2]/div[1]')
 tab_aovivo.click()
-div_mae = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div/div[1]/div[2]/div[5]/div/section/div/div')
+div_mae = driver.find_element_by_xpath('//*[@id="live-table"]')
 html_content = div_mae.get_attribute('outerHTML')
 soup = BeautifulSoup(html_content, 'html.parser')
 
@@ -41,10 +41,11 @@ away_teams = soup.find_all ('div', class_='event__participant--away')
 home_score = soup.find_all ('div', class_='event__score--home')
 away_score = soup.find_all ('div', class_='event__score--away')
 
+jogos_ao_vivo = []
 tamanho_lista = len(home_teams)
 indice = 0
 
-for item in range (tamanho_lista):
-    (home_teams[indice].get_text(), ' ', home_score[indice].get_text(), 'x', away_score[indice].get_text(), ' ', away_teams[indice].get_text())
+for item in range(tamanho_lista):
+    print(home_teams[indice].get_text(), ' ', home_score[indice].get_text(), 'x', away_score[indice].get_text(), ' ', away_teams[indice].get_text())
     indice += 1
     
