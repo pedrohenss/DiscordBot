@@ -150,3 +150,4 @@ __pycache__/scraping.cpython-38.pyc
 .idea/vcs.xml
 .idea/inspectionProfiles/Project_Default.xml
 __pycache__/scraping.cpython-38.pyc
+geckodriver.log
