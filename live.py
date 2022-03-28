@@ -14,7 +14,7 @@ driver.get('https://www.flashscore.com.br')
 
 time.sleep(5)
 
-tab_aovivo = driver.find_element_by_css_selector('div.tabs__tab:nth-child(2)')
+tab_aovivo = driver.find_element_by_css_selector('#live-table > div.filters > div')
 tab_aovivo.click()
 div_mae = driver.find_element_by_xpath('//*[@id="live-table"]')
 html_content = div_mae.get_attribute('outerHTML')
